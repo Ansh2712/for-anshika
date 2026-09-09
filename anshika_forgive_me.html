@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ff758c">
+<title>For Anshika ❤️</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{min-height:100vh;background:linear-gradient(135deg,#ff758c,#ff7eb3);display:flex;justify-content:center;align-items:center;overflow:hidden;color:#333}
+.hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden}.heart{position:absolute;bottom:-50px;font-size:22px;animation:floatUp linear infinite;opacity:.7}
+@keyframes floatUp{0%{transform:translateY(0) rotate(0);opacity:0}20%{opacity:.8}100%{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+.container{width:min(92%,430px);background:rgba(255,255,255,.96);border-radius:28px;padding:32px 24px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.2);position:relative;z-index:2;animation:appear .6s ease}
+@keyframes appear{from{transform:scale(.8);opacity:0}to{transform:scale(1);opacity:1}}
+.emoji{font-size:60px;margin-bottom:12px;animation:bounce 1.5s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+h1{font-size:26px;margin-bottom:12px;color:#ff4f73}p{font-size:15px;color:#666;line-height:1.6;margin-bottom:24px}
+.buttons{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+button{border:0;padding:13px 24px;border-radius:30px;font-size:15px;font-weight:600;cursor:pointer;transition:.25s;min-width:110px}
+.yes{background:#ff4f73;color:white;box-shadow:0 7px 18px rgba(255,79,115,.3)}.yes:hover{transform:scale(1.05)}
+.no{background:#eee;color:#555}.option{width:100%;background:#fff0f4;color:#ff4f73;margin:6px 0;border:1px solid #ffd0db}.option:hover{background:#ff4f73;color:white}
+.error{margin-top:16px;color:#ff3159;font-size:13px;font-weight:600;min-height:20px}.hidden{display:none}
+.love-message{font-size:16px;color:#555;margin-top:15px}.anniversary{margin-top:24px;padding-top:18px;border-top:1px solid #ffd7df}
+.anniversary h2{font-size:20px;color:#ff4f73;margin-bottom:6px}.anniversary-date{font-size:13px;color:#777}
+.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:13px}.time-box{background:#fff0f4;border-radius:10px;padding:8px 3px}.time-box strong{display:block;font-size:17px;color:#ff4f73}.time-box span{font-size:9px;color:#777}
+@media(max-width:380px){.container{padding:27px 18px}h1{font-size:23px}.emoji{font-size:52px}}
+</style>
+</head>
+<body>
+<div class="hearts">
+<div class="heart" style="left:5%;animation-duration:8s">❤️</div>
+<div class="heart" style="left:18%;animation-duration:10s;animation-delay:2s">💕</div>
+<div class="heart" style="left:35%;animation-duration:7s;animation-delay:1s">💗</div>
+<div class="heart" style="left:55%;animation-duration:11s;animation-delay:3s">❤️</div>
+<div class="heart" style="left:75%;animation-duration:9s;animation-delay:1s">💖</div>
+<div class="heart" style="left:88%;animation-duration:12s;animation-delay:4s">💕</div>
+</div>
+
+<div class="container">
+<div id="screen1">
+<div class="emoji">🥺</div>
+<h1>Anshika, one very important question...</h1>
+<p>Before we continue, I need to know something...<br><br><b>Do you love me?</b> ❤️</p>
+<div class="buttons">
+<button class="yes" onclick="loveYes()">Yes ❤️</button>
+<button class="no" id="loveNo">No 😐</button>
+</div>
+<div class="error" id="loveError"></div>
+</div>
+
+<div id="screen2" class="hidden">
+<div class="emoji">👀</div>
+<h1>Okay Anshika... next question</h1>
+<p>Be honest with me...<br><br><b>Are you mad at me?</b> 🥺</p>
+<div class="buttons">
+<button class="yes" onclick="madYes()">Yes 😤</button>
+<button class="no" onclick="madNo()">No ❤️</button>
+</div>
+<div class="error" id="madError"></div>
+</div>
+
+<div id="screen3" class="hidden">
+<div class="emoji">🥹</div>
+<h1>Okay... I understand 😭</h1>
+<p>So Anshika...<br><br><b>When will you forgive me?</b> ❤️</p>
+<button class="option" onclick="wrongForgive('Tomorrow')">Tomorrow 🌙</button>
+<button class="option" onclick="wrongForgive('Next Week')">Next Week 📅</button>
+<button class="option" onclick="wrongForgive('Next Month')">Next Month 🥲</button>
+<button class="option" onclick="todayForgive()">Today ❤️</button>
+<div class="error" id="forgiveError"></div>
+</div>
+
+<div id="screen4" class="hidden">
+<div class="emoji">🥰</div>
+<h1>YESSS, ANSHIKA! ❤️</h1>
+<p>I knew you couldn't stay mad at me forever. 🥹<br><br>Thank you for forgiving me.<br><b>I promise I'll make it up to you. ❤️</b></p>
+<div class="love-message">Now there's only one thing left...<br><b>Our anniversary 💕</b></div>
+<div class="anniversary">
+<h2>Our Anniversary 💕</h2>
+<div class="anniversary-date">12 September ❤️</div>
+<div class="countdown">
+<div class="time-box"><strong id="days">00</strong><span>Days</span></div>
+<div class="time-box"><strong id="hours">00</strong><span>Hrs</span></div>
+<div class="time-box"><strong id="minutes">00</strong><span>Min</span></div>
+<div class="time-box"><strong id="seconds">00</strong><span>Sec</span></div>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+const noButton=document.getElementById("loveNo");
+noButton.addEventListener("click",function(){
+document.getElementById("loveError").innerText="ERROR 404: 'No' is not an acceptable answer 😭❤️";
+const x=Math.random()*100-50,y=Math.random()*60-30;
+noButton.style.transform=`translate(${x}px,${y}px)`;
+});
+function loveYes(){screen1.classList.add("hidden");screen2.classList.remove("hidden")}
+function madYes(){screen2.classList.add("hidden");screen3.classList.remove("hidden")}
+function madNo(){madError.innerText="Hmm... I think you're lying because you're still mad 😭❤️";setTimeout(()=>{screen2.classList.add("hidden");screen3.classList.remove("hidden")},1200)}
+function wrongForgive(option){forgiveError.innerText=`ERROR 😭: "${option}" is unavailable. Please select TODAY ❤️`}
+function todayForgive(){screen3.classList.add("hidden");screen4.classList.remove("hidden");startCountdown()}
+function startCountdown(){
+function update(){
+const now=new Date();let year=now.getFullYear();
+let anniversary=new Date(year,8,12,0,0,0);
+if(now>=anniversary) anniversary=new Date(year+1,8,12,0,0,0);
+const d=anniversary-now;
+days.textContent=String(Math.floor(d/86400000)).padStart(2,"0");
+hours.textContent=String(Math.floor(d/3600000)%24).padStart(2,"0");
+minutes.textContent=String(Math.floor(d/60000)%60).padStart(2,"0");
+seconds.textContent=String(Math.floor(d/1000)%60).padStart(2,"0");
+}
+update();setInterval(update,1000);
+}
+</script>
+</body>
+</html>
